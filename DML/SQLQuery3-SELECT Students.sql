@@ -21,14 +21,13 @@ PRINT	CAST(DATEDIFF (DAY,N'2003-03-08', GETDATE())/365.25 AS TINYINT)
 
 
 
-
 --SELECT 
 --    [Преподаватель]		= FORMATMESSAGE(N'%s %s %s', last_name, first_name,middle_name),
 --    [Дисциплина]			= discipline_name
 --FROM Teachers, TeachersDisciplinesRelation, Disciplines
 --WHERE teacher_id			= teacher 
 --    AND discipline		= discipline_id
---    AND teacher_id		= 1;
+--    AND teacher_id		= 2;
 
 
 --SELECT 
@@ -53,15 +52,15 @@ PRINT	CAST(DATEDIFF (DAY,N'2003-03-08', GETDATE())/365.25 AS TINYINT)
 --SELECT * FROM TeachersDisciplinesRelation
 --WHERE discipline				=8
 
-SELECT 
-	[Дисциплина]			= discipline_name,
-	[Преподаватели]			=  STRING_AGG(FORMATMESSAGE(N'%s %s %s', last_name, first_name,middle_name),','),
-	[Количество]			= COUNT(*)-- подсчет строк 
+--SELECT 
+--	[Дисциплина]			= discipline_name,
+--	[Преподаватели]			=  STRING_AGG(FORMATMESSAGE(N'%s %s %s', last_name, first_name,middle_name),','),
+--	[Количество]			= COUNT(*)-- подсчет строк 
 	
-FROM Disciplines
-JOIN TeachersDisciplinesRelation ON discipline_id = discipline
-JOIN Teachers ON teacher = teacher_id --JOIN -это способ соединить данные из разных таблиц в один результат
-WHERE  		discipline_id		= 1
-GROUP BY discipline_name -- GROUP BY это способ сгруппировать строки с одинаковыми значениями в одну группу
+--FROM Disciplines
+--JOIN TeachersDisciplinesRelation ON discipline_id = discipline
+--JOIN Teachers ON teacher = teacher_id --JOIN -это способ соединить данные из разных таблиц в один результат
+--WHERE  		discipline_id		=2
+--GROUP BY discipline_name -- GROUP BY это способ сгруппировать строки с одинаковыми значениями в одну группу
 ;
 
